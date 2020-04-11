@@ -22,7 +22,7 @@ class MethodUnit : public Unit {};
 class AbstractFactory
 {
 public:
-    virtual std::shared_ptr<ClassUnit> GetClassUnit(std::string name, unsigned int flags) = 0;
+    virtual std::shared_ptr<ClassUnit> GetClassUnit(std::string name, unsigned int flags = 0) = 0;
     virtual std::shared_ptr<MethodUnit> GetMethodUnit(std::string name, std::string returnType, unsigned int flags) = 0;
 };
 

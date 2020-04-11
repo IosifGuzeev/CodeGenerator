@@ -3,16 +3,30 @@
 
 #include <string>
 #include <memory>
+#include <map>
 
 #include <interfaces.h>
+#include <factories/cppFactory.h>
+#include <Utilities/writers.h>
 
 class CodeGenerator
-{
-
-    std::shared_ptr<AbstractFactory> factory;
+{    
+    using ClassPtr = std::shared_ptr<ClassUnit>;
+    AbstractFactory *factory;
+    Writer *writer;
+    std::map<std::string, ClassPtr> classes;
 
 public:
-    CodeGenerator(std::string langauge);
+    enum Languages{
+        cpp = 0,
+        c_sharp = 1,
+        java = 2
+    };
+
+    CodeGenerator(Languages langauge, Writer *_writer);
+    ~CodeGenerator();
+    void AddClassUnit(std::string name, unsigned int flags = 0);
+    void AddMethodUnit(std::string className, Unit::Flags accessType, std::string name, std::string returnType, Unit::Flags flags);
     void Compile();
 };
 

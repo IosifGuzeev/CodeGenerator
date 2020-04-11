@@ -5,10 +5,12 @@
 #include <string>
 #include <vector>
 #include <map>
+#include <iostream>
 
 class CppFactory : public AbstractFactory
 {
-    std::shared_ptr<ClassUnit> GetClassUnit(std::string name, unsigned int flags) override;
+public:
+    std::shared_ptr<ClassUnit> GetClassUnit(std::string name, unsigned int flags = 0) override;
     std::shared_ptr<MethodUnit> GetMethodUnit(std::string name, std::string returnType, unsigned int flags) override;
 };
 
@@ -31,5 +33,22 @@ public:
     void addSubUnit(const std::shared_ptr<Unit>& subUnit, Flags accessType) override;
     std::string Compile(unsigned int level = 0) override;
 };
+
+class CppMethodUnit : public MethodUnit
+{
+    using UnitVector = std::vector<std::shared_ptr<Unit>>;
+
+    std::string name;
+    std::string resultType;
+    std::string modificator;
+    std::map<std::string, UnitVector> subUnits;
+
+public:
+
+    CppMethodUnit(std::string name, std::string resultType, Flags flags = 0);
+    void addSubUnit(const std::shared_ptr<Unit>& subUnit, Flags accessType) override;
+    std::string Compile(unsigned int level = 0) override;
+};
+
 
 #endif // ABSTRACTFACTORY_H

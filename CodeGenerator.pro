@@ -16,6 +16,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         CodeGenerator.cpp \
+        Utilities/writers.cpp \
         factories/cppFactory.cpp \
         interfaces.cpp \
         main.cpp
@@ -27,5 +28,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     CodeGenerator.h \
+    Utilities/writers.h \
     factories/cppFactory.h \
     interfaces.h
