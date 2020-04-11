@@ -50,7 +50,7 @@ std::string JavaClassUnit::Compile(unsigned int level)
     result.push_back("}\n");
     std::string resultAsStr;
     for(auto& str: result)
-        resultAsStr += std::string('    ', level) + str;
+        resultAsStr += std::string(level * 4, ' ') + str;
     return resultAsStr;
 }
 
