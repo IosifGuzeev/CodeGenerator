@@ -3,13 +3,19 @@
 CodeGenerator::CodeGenerator(Languages langauge, Writer *_writer)
 {
     switch (langauge) {
-    case 0:
+    case CodeGenerator::cpp:
     {
         factory = new CppFactory();
+        break;
+    }
+    case CodeGenerator::java:
+    {
+        factory = new JavaFactory();
     }
     default:
     {
         std::runtime_error("Wrong language id!");
+        break;
     }
     };
     this->writer = _writer;

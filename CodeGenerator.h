@@ -7,6 +7,7 @@
 
 #include <interfaces.h>
 #include <factories/cppFactory.h>
+#include <factories/javaFactory.h>
 #include <Utilities/writers.h>
 
 class CodeGenerator

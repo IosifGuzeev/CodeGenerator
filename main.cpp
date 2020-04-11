@@ -4,7 +4,7 @@
 
 int main(int argc, char *argv[])
 {
-    auto generator = CodeGenerator(CodeGenerator::Languages::cpp, new FileWriter("C:\\test2\\test_output.txt"));
+    auto generator = CodeGenerator(CodeGenerator::Languages::cpp, new ConsoleWriter());
     generator.AddClassUnit("A", 2);
     generator.AddMethodUnit("A", 1, "foo", "void", 3);
     generator.Compile();

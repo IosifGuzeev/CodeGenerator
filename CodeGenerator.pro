@@ -18,6 +18,7 @@ SOURCES += \
         CodeGenerator.cpp \
         Utilities/writers.cpp \
         factories/cppFactory.cpp \
+        factories/javaFactory.cpp \
         interfaces.cpp \
         main.cpp
 
@@ -30,4 +31,5 @@ HEADERS += \
     CodeGenerator.h \
     Utilities/writers.h \
     factories/cppFactory.h \
+    factories/javaFactory.h \
     interfaces.h
