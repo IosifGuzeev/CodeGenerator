@@ -42,5 +42,5 @@ void CodeGenerator::AddMethodUnit(std::string className, Unit::Flags accessType,
 void CodeGenerator::Compile()
 {
     for(auto& e: classes)
-        writer->write(e.second->Compile());
+        writer->write(e.second->Compile(0));
 }

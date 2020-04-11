@@ -29,6 +29,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     CodeGenerator.h \
+    Utilities/tools.h \
     Utilities/writers.h \
     factories/cppFactory.h \
     factories/javaFactory.h \

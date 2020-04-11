@@ -55,7 +55,7 @@ std::string CppClassUnit::Compile(unsigned int level)
     result.push_back("};\n");
     std::string resultAsStr;
     for(auto& str: result)
-        resultAsStr += str;
+        resultAsStr += std::string(level * 4, ' ') + str;
     return resultAsStr;
 }
 
@@ -71,17 +71,17 @@ CppMethodUnit::CppMethodUnit(std::string name, std::string resultType, Flags fla
     }
     case 1:
     {
-        modificator = "static";
+        modificator = "static ";
         break;
     }
     case 2:
     {
-        modificator = "const";
+        modificator = "const ";
         break;
     }
     case 3:
     {
-        modificator = "virtual";
+        modificator = "virtual ";
         break;
     }
     default:
@@ -99,7 +99,7 @@ void CppMethodUnit::addSubUnit(const std::shared_ptr<Unit> &subUnit, Unit::Flags
 std::string CppMethodUnit::Compile(unsigned int level)
 {
     std::vector<std::string> result;
-    result.push_back(modificator + " " + resultType + " " + name + "()\n");
+    result.push_back(modificator + resultType + " " + name + "()\n");
     result.push_back("{\n");
     for (auto &unitsVec: subUnits)
     {
@@ -113,7 +113,7 @@ std::string CppMethodUnit::Compile(unsigned int level)
 
     std::string resultAsStr;
     for(auto& str: result)
-        resultAsStr += str;
+        resultAsStr += std::string(level * 4, ' ') + str;
     return resultAsStr;
 }
 
